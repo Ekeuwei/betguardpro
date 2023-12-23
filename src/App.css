@@ -7,11 +7,21 @@ body{
   font-family: Lato, Roboto,Pacifico, Courier, monospace;
   /* background: rgb(241 235 248); */
   /* background: rgb(164 111 220); */
+  /* background-color: #edf1f6; */
   background: linear-gradient(-45deg, #ee7752, #a46fdc, #23a6d5, #23d5ab);
   animation: gradient 15s ease infinite;
 
 }
-
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.right{
+  width: 350px;
+}
 .heading-text{
   text-transform:capitalize;
   text-align: center;
@@ -28,7 +38,6 @@ body{
   color: #ffff8c;
 }
 .synopsis{
-  margin-top: 30px;
   background: #eee;
   color: black;
   border-radius: 5px;
@@ -40,7 +49,6 @@ body{
 /* calculator starts */
 .calculator{
   max-width: 600px;
-  margin: 0 auto;
 }
 /* calculator ends */
 
@@ -76,7 +84,6 @@ select {
   display: flex;
   outline: solid rgba(0, 0, 0, 0.15);
   background-color: white;
-  width: 100%;
   padding: 10px;
   align-items: center;
   border-radius: 8px;
@@ -107,14 +114,26 @@ input[type="password"]:focus {
 /* Input ends */
 
 .settings{
+  position: relative;
   background-color: rgba(255, 255, 255, 0.332);
   padding: 20px;
   border-radius: 10px;
   text-shadow: 8px 8px 10px #8dc4d38c;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   border: solid rgb(92, 217, 215) 2px;
+  overflow: hidden;
 }
 
+.advance_btn{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background: #3EAB63;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  border-top-left-radius: 10px;
+}
 
 .control{
   display: flex;
@@ -130,6 +149,7 @@ input[type="password"]:focus {
   border-radius: 10px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
 }
 .input{
   position: relative;
@@ -205,6 +225,7 @@ input[type="password"]:focus {
   background: #666666;
   padding: 5px;
   width: 10px;
+  cursor: pointer;
   height: 10px;
   border-radius: 50%;
 }
@@ -255,12 +276,19 @@ input[type="password"]:focus {
   margin: 0;
   padding: 10px 10px 10px 30px;
 }
+/* Card starts */
 .card{
   background-color: gray;
   border-radius: 10px;
   background: hwb(269 44% 14% / 0.25);
   overflow: hidden;
-  margin-top: 20px;
+  margin: 10px;
+}
+.card h3 {
+  background: #a46fdc;
+  padding: 10px;
+  color: #fff;
+  margin: 0;
 }
 .won{
   background: hsla(140, 47%, 46%, 0.25);
@@ -280,13 +308,173 @@ input[type="password"]:focus {
 .gold h3{
   background: #daa520!important;
 }
-.card h3{
-  background: #a46fdc;
-  padding: 10px;
-  color: #fff;
+/* How it works --ends */
+
+/* Predictions starts */
+.predictions{
+  padding: 20px 10px;
+  background-color: white;
+  color: #222226;
+  margin: 10px 0;
+  border-radius: 20px;
+}
+.predictions .title{
+  margin-bottom: 10px;
+  text-align: center;
+}
+.predictions .date{
+  margin-bottom: -5px;
+}
+.predictions .date .p-title{
+  font-size: 16px;
+}
+.p-title{
+  font-size: 20px;
+  font-weight: 600;
+}
+.p-subtitle{
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(34,34,38,0.45);
+}
+.p-title, .p-subtitle{
   margin: 0;
 }
-/* How it works --ends */
+.match{
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.league{
+  margin: 0;
+}
+.teams{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.predictions .team{
+  background-color: #F8D8C2;
+  flex: 1;
+  border-radius: 5px;
+  padding: 10px 5px;
+  margin: 0;
+  text-align: center;
+  width: 200px;
+  white-space: nowrap;
+  overflow: auto;
+  /* text-overflow: ellipsis; */
+}
+.scores{
+  width: 15%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.scores p{
+  margin: 0;
+}
+.scores .fulltime{
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.scores .halftime{
+  font-size: xx-small;
+  color: rgba(34, 34, 38, 0.45);
+  letter-spacing: 2px;
+}
+.prediction{
+  display: flex;
+  gap: 3px;
+}
+.prediction .pick{
+  border-radius: 5px 0 0 5px;
+  flex: 1;
+}
+.prediction .odds{
+  border-radius: 0 5px 5px 0;
+  width: 25%;
+  text-align: center;
+}
+.prediction .pick, .prediction .odds{
+  background-color: #F8D8C2;
+  margin: 0;
+  padding: 10px 5px;
+}
+.total-odds{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.responsible-gambling{
+  font-size: x-small;
+  color: #666666;
+  text-align: center;
+  margin: 10px 0 -10px;
+}
+.date-odds{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: -10px;
+  margin-top: 15px;
+  border-top: 2px #a1a1a1 dashed;
+}
+.date-odds .total-odds, .date-odds .date{
+  margin: auto 0;
+}
+/* Predictions ends */
+
+/* Spin -starts */
+.loading {
+  position: relative;
+  /* color: transparent !important; */
+}
+
+.loading_::before {
+  position: absolute;
+  content: '';
+  display: flex;
+  background-color: #aeaeae;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: auto;
+  height: 80%;
+  max-height: 3.725rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading::after {
+  position: absolute;
+  content: '';
+  display: flex;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-top-color: #3498db;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: auto;
+  height: 80%;
+  max-height: 3.125rem;
+  transition: .3s ease-in-out;
+  animation: spin 1s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+/* Spin -ends */
 
 /* Shake --starts*/
 @keyframes shake {
@@ -317,6 +505,36 @@ input[type="password"]:focus {
 }
 /* Shake --ends*/
 
+.stepsInput{
+  display: block;
+  margin-top: 10px;
+}
+.stepsInput label{
+  font-size: smaller;
+  color:rgba(0, 0, 0, 0.85);
+}
+.simulator{
+  position: relative;
+  border-radius: 10px;
+  background-color: #e1d7f5;
+  padding: 20px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.simulator .close{
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  color: white;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #999;
+  top: 0;
+  right: 0;
+  padding: 7px 10px;
+
+}
 
 /* Animation starts */
 

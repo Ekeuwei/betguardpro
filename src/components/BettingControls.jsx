@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { getInvestmentSteps } from "./calculator"
+import { estimate, getInvestmentSteps } from "./calculator"
 import { faGears } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 
-const BettingControls = ({data, setData, setSteps, setShowList, showList}) => {
+const BettingControls = ({data, setData, setSteps, setShowList, showList, setTarget, setShowAdvance}) => {
 
   const formatNumber = value => new Intl.NumberFormat('en-US').format(value.toString().replace(/\D/g, ''))//Number(value).toLocaleString("en-US");
   
@@ -38,6 +38,12 @@ const BettingControls = ({data, setData, setSteps, setShowList, showList}) => {
 
     if(emptyFields.length === 0){
       setSteps(getInvestmentSteps(data.steps, data.odds, data.bankRoll))
+      
+      // const newProfit = target.profit < 1 && target.steps < 1 ? data.bankRoll:target.profit;
+      // const newTarget = {profit: target.steps===0? newProfit:0, steps: target.steps}
+      // const estimatedValue = estimate(data.odds, data.steps, data.bankRoll,newTarget);
+      const estimatedValue = estimate(data.odds, data.steps, data.bankRoll,{profit:data.bankRoll, steps:0});
+      setTarget(estimatedValue)
     }
     setShowList(true)
   }
@@ -46,6 +52,7 @@ const BettingControls = ({data, setData, setSteps, setShowList, showList}) => {
     <>
       <form onSubmit={calculateSteps} className="settings">
 
+        <h2 className='heading-text' style={{margin:"0 0 30px"}}>Progressive Staking Calculator</h2>
         <div className="control">
           <div className={`input ${shakeFields.includes('odds')?'shake error':''}`}>
             <input 
@@ -69,7 +76,7 @@ const BettingControls = ({data, setData, setSteps, setShowList, showList}) => {
             />
             <label htmlFor="steps" className={` ${data.steps.length>0? "fade-in":"fade-out"}`}>Steps</label>
           </div>
-          <div className={`input ${shakeFields.includes('bankRoll')?'shake error':''}`}>
+          <div className={`input ${shakeFields.includes('bankRoll')?'shake error':''}`} style={{width:"100%"}}>
 
             <input 
                 type="text"
@@ -83,7 +90,10 @@ const BettingControls = ({data, setData, setSteps, setShowList, showList}) => {
           </div>
         </div>
         <button className="btn" type="submit"><FontAwesomeIcon icon={faGears}/> Calculate steps</button>
+        <div className="advance_btn" onClick={()=>setShowAdvance(prev => !prev)}>More options</div>
       </form>
+
+      {/* <Simulator odds={data.odds} steps={data.steps} bankroll={data.bankroll}/> */}
     </>
   )
 }

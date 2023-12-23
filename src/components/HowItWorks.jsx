@@ -2,7 +2,7 @@
 const HowItWorks = () => {
   return (
     <div className="howItWorks">
-        <h2>How it Works</h2>
+        <h2 style={{marginLeft:"10px"}}>How it Works</h2>
         <div className="card">
             <h3>Input Your Details:</h3>
             <ul>

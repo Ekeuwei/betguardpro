@@ -35,8 +35,8 @@ BetGuard Pro is a web app designed to provide football punters with a progressiv
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/BetGuard-Pro.git`
-2. Navigate to the project directory: `cd BetGuard-Pro`
+1. Clone the repository: `git clone https://github.com/your-username/betguardpro.git`
+2. Navigate to the project directory: `cd betguardpro`
 3. Install dependencies: `npm install`
 4. Start the app: `npm start`
 
