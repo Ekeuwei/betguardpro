@@ -3,6 +3,7 @@ import Match from "./Match"
 import { fetchData } from "../features/dataSlice"
 import { useDispatch, useSelector } from "react-redux"
 import Loading from "./Loading"
+import dateFormat from "dateformat"
 
 const TodayPrediction = () => {
     const dispatch = useDispatch()
@@ -19,13 +20,13 @@ const TodayPrediction = () => {
     <div className="predictions">
         <div className="title">
             <h2 className="p-title">Today Predictions</h2>
-            <p className="p-subtitle">Recommended for 5 Steps</p>
+            <p className="p-subtitle">Recommended for 4 Steps</p>
         </div>
         {status==="loading"&& <Loading />}
         {data && <>
             <div className="date">
-                <h2 className="p-title">Monday</h2>
-                <p className="p-subtitle">18th December, 2023</p>
+                <h2 className="p-title">{dateFormat(data.date, 'dddd')}</h2>
+                <p className="p-subtitle">{dateFormat(data.date, "mmmm dS, yyyy")}</p>
             </div>
             {data.picks.map((match, index)=>(<Match key={index} match={match}/>))}
             <div className="total-odds">{`${data.totalOdds} Odds`}</div>

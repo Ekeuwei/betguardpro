@@ -22,7 +22,7 @@ const PreviousPrediction = () => {
         <div className="predictions">
             <div className="title">
                 <h2 className="p-title">Last 7 Days Predictions</h2>
-                <p className="p-subtitle">Recommended for 5 Steps</p>
+                <p className="p-subtitle">Recommended for 4 Steps</p>
             </div>
 
             {status==="loading"&&<Loading />}
