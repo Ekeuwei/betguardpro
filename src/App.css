@@ -20,7 +20,7 @@ body{
   margin-bottom: 20px;
 }
 .right{
-  width: 350px;
+  width: 100%;
 }
 .heading-text{
   text-transform:capitalize;
@@ -645,7 +645,9 @@ input[type="password"]:focus {
     .sub-heading-text{
       font-size: 20px;
     }
-
+  .right {
+    max-width: 500px;
+  }
 }
 
 /* Styles for screens larger than 768px width (desktop) */
@@ -658,7 +660,9 @@ input[type="password"]:focus {
   .netProfit{
     width: 20%;
   }
-
+  .right{
+    max-width: 450px;
+  }
 }
 
 .area {
