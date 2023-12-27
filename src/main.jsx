@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { Provider } from 'react-redux'
 import { store } from './store/index.js'
+import ReactGA from 'react-ga'
 
+ReactGA.initialize('G-S8MTR0X2E8')
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

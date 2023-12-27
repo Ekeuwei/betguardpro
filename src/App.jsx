@@ -8,6 +8,7 @@ import HowItWorks from './components/HowItWorks'
 import Prediction from './components/TodayPrediction'
 import PreviousPrediction from './components/PreviousPrediction'
 import Simulator from './components/Simulator'
+import ReactGA from 'react-ga'
 
 function App() {
 
@@ -33,6 +34,10 @@ function App() {
       setTimeout(()=>setHidAdvance(showAdvance),500)
     }
   }, [showAdvance])
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <Container>
