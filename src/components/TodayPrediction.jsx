@@ -11,6 +11,8 @@ const TodayPrediction = () => {
 
     // eslint-disable-next-line no-unused-vars
     const {status, data, error} = useSelector(state => state.data[key]||{})
+    const title = data?.totalOdds > 1 ? `${data.totalOdds} Odds`: 'No Prediction'
+
 
     useEffect(()=>{
         const url = 'https://bettingtips.rveasy.net/betguardpro/today.json'
@@ -29,7 +31,7 @@ const TodayPrediction = () => {
                 <p className="p-subtitle">{dateFormat(data.date, "mmmm dS, yyyy")}</p>
             </div>
             {data.picks.map((match, index)=>(<Match key={index} match={match}/>))}
-            <div className="total-odds">{`${data.totalOdds} Odds`}</div>
+            <div className="total-odds">{title}</div>
             <div className="responsible-gambling">Gamble responsibly 18+</div>
         </>}
     </div>

@@ -4,8 +4,13 @@ import axios from 'axios';
 
 // Async thunk for fetching data
 export const fetchData = createAsyncThunk('data/fetchData', async ({ url, key }) => {
+  const options = {
+      headers: {
+        // 'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+      },
+    }
   try {
-    const response = await axios.get(url);
+    const response = await axios.get(url, options);
     return { data: response.data, key };
   } catch (error) {
     // Handle errors
