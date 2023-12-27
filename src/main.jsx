@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { store } from './store/index.js'
 import ReactGA from 'react-ga'
 
-ReactGA.initialize('G-S8MTR0X2E8')
+ReactGA.initialize('G-QNFPGTTYXS')
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
