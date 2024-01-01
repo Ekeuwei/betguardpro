@@ -1,5 +1,6 @@
 // import data from '../assets/onegame.json'
 import { useDispatch, useSelector } from "react-redux"
+import dateFormat from "dateformat"
 import { useEffect } from "react"
 import { fetchData } from "../features/dataSlice"
 import Prediction from "./Prediction"
@@ -12,9 +13,10 @@ const PreviousPrediction = () => {
     // eslint-disable-next-line no-unused-vars
     const { status, data, error } = useSelector(state => state.data[key]||{});
     const dispatch = useDispatch()
-
+    
     useEffect(()=>{
-        const apiUrl = 'https://bettingtips.rveasy.net/betguardpro/202312.json'
+        const month = dateFormat(new Date(), 'yyyymm')
+        const apiUrl = `https://bettingtips.rveasy.net/betguardpro/${month}.json`
         dispatch(fetchData({ url: apiUrl, key }));
     },[dispatch])
 
