@@ -46,7 +46,7 @@ function App() {
       <h2 className="sub-heading-text">Your Winning Edge in Sports Betting</h2>
       <div className="main">
         <div className="calculator">
-          <p className='synopsis'>This app empowers you with a proven progressive staking strategy to safeguard and grow your bankroll.</p>
+          {/* <p className='synopsis'>This app empowers you with a proven progressive staking strategy to safeguard and grow your bankroll.</p> */}
           <BettingControls 
             data={data} 
             setData={setData} 
