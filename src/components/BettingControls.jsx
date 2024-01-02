@@ -52,7 +52,7 @@ const BettingControls = ({data, setData, setSteps, setShowList, showList, setTar
     <>
       <form onSubmit={calculateSteps} className="settings">
 
-        <h2 className='heading-text' style={{margin:"0 0 30px", color:"#DBA02D"}}>Progressive Staking Calculator</h2>
+        <h2 className='heading-text banner' style={{margin:"0 0 30px"}}>Progressive Staking Calculator</h2>
         <div className="control">
           <div className={`input ${shakeFields.includes('odds')?'shake error':''}`}>
             <input 
